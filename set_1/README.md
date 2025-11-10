@@ -4,7 +4,7 @@ Is considered the qualifying set. With the aim of assessing if someone is ready 
 The lessons and code from this set are important stepping stones to later attacks.
 ### Challenges
 -----------
-### Set 1: Set 1, Challenge 1 — [Convert Hex to Base64](./set_1/chal_1.py)
+### Set 1: Challenge 1 — [Convert Hex to Base64](./set_1/chal_1.py)
 **Goal:**  
 Convert a hex string into Base64 string.
 **Summary:**  
