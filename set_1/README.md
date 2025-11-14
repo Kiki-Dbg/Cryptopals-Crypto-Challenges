@@ -42,9 +42,19 @@ Should produce:
 ```
 746865206b696420646f6e277420706c6179
 ```
-
-
-
-
-
-
+##  
+### Set 1: Challenge 3 — [Single-byte XOR cipher](./chal_2.py)  
+**Goal:**  
+decrypt the message that is XOR'ed against a single byte.  
+**Summary:**  
+Learning English plaintext character frequency and evaluation.  
+**Reference:**  
+[Set 1: Challenge 3](https://cryptopals.com/sets/1/challenges/3)  
+**Example:**  
+The hex encoded string is:  
+```
+1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736
+```
+XOR'ed against a single byte
+**Cryptopals Hint:**  
+After this challenge, you have permission to make "ETAOIN SHRDLU" jokes.
