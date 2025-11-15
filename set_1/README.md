@@ -43,7 +43,7 @@ Should produce:
 746865206b696420646f6e277420706c6179
 ```
 ##  
-### Set 1: Challenge 3 — [Single-byte XOR cipher](./chal_2.py)  
+### Set 1: Challenge 3 — [Single-byte XOR cipher](./chal_3.py)  
 **Goal:**  
 decrypt the message that is XOR'ed against a single byte.  
 **Summary:**  
@@ -58,3 +58,13 @@ The hex encoded string is:
 XOR'ed against a single byte
 **Cryptopals Hint:**  
 After this challenge, you have permission to make "ETAOIN SHRDLU" jokes.
+##  
+### Set 1: Challenge 4 — [Detect single-character XOR](./chal_4.py)  
+**Goal:**  
+find the 60-character string in the file that has been encrypted by single-character XOR 
+**Summary:**  
+Finding encoded text in a file  
+**Reference:**  
+[Set 1: Challenge 4](https://cryptopals.com/sets/1/challenges/4)  
+**Cryptopals Hint:**  
+The code from challenge 3 should help
