@@ -68,3 +68,26 @@ Finding encoded text in a file
 [Set 1: Challenge 4](https://cryptopals.com/sets/1/challenges/4)  
 **Cryptopals Hint:**  
 The code from challenge 3 should help
+
+
+
+
+##  
+### Set 1: Challenge 5 — [Implement repeating-key XOR](./chal_5.py)  
+**Goal:**  
+Encrypt the string using repeating-key XOR with the key "ICE".  
+**Summary:**  
+Learning how to use a repeating key to encrypt data.  
+**Reference:**  
+[Set 1: Challenge 5](https://cryptopals.com/sets/1/challenges/5)  
+**Example:**  
+The string:  
+```
+Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal
+```
+XOR'ed with the key "ICE" will  Should produce:
+```
+0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f
+```
+
+

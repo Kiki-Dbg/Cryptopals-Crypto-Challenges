@@ -17,3 +17,7 @@ def xor_brute(ciphertext):
                     'plaintext': plaintext }
         candidates.append(result)
     return sorted(candidates, key=lambda c: c['score'], reverse=True)[0]
+
+def xor_repeat_key(key, text):
+    keystream = key*(len(text)//len(key) + 1 )
+    return xor_bytes(text, keystream)
