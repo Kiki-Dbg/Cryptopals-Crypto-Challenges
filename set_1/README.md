@@ -61,7 +61,7 @@ After this challenge, you have permission to make "ETAOIN SHRDLU" jokes.
 ##  
 ### Set 1: Challenge 4 — [Detect single-character XOR](./chal_4.py)  
 **Goal:**  
-find the 60-character string in the file that has been encrypted by single-character XOR 
+find the 60-character string in the file that has been encrypted by single-character XOR.  
 **Summary:**  
 Extending single-byte XOR cracking by testing multiple strings and detecting which one decrypts into meaningful English.  
 **Reference:**  
