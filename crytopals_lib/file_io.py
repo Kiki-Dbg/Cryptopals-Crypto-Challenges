@@ -20,3 +20,6 @@ def get_file_lines(name, action='str_to_bytes'):
             lines.append(convert_bytes(line.strip(), action))
     return lines
 
+def get_file_text(name, action='str_to_bytes'):
+    with open(name) as file:
+        return convert_bytes(file.read(), action)

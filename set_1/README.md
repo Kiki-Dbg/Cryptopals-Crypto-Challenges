@@ -5,9 +5,9 @@ The lessons and code from this set are important stepping stones to later attack
 ##  
 ### Set 1: Challenge 1 — [Convert Hex to Base64](./chal_1.py)  
 **Goal:**  
-Convert a hex string into Base64 string.  
+Convert a hex-encoded string to Base64 representation.  
 **Summary:**  
-Learn basic encoding conversion between hex and Base64.  
+Learn to decode hex into raw bytes and re-encode those bytes as Base64, a foundational skill required for all later Cryptopals exercises.  
 **Reference:**  
 [Set 1: Challenge 1](https://cryptopals.com/sets/1/challenges/1)  
 **Example:**  
@@ -24,9 +24,9 @@ Always operate on raw bytes, never on encoded strings. Only use hex and base64 f
 ##  
 ### Set 1: Challenge 2 — [Fixed XOR](./chal_2.py)  
 **Goal:**  
-XOR two fixed length buffers.  
+XOR two equal-length byte buffers.  
 **Summary:**  
-Learn logic operators on byte arrays.  
+Learn bitwise XOR behaviour by decoding two hex strings, XORing them, and confirm the expected result.  
 **Reference:**  
 [Set 1: Challenge 2](https://cryptopals.com/sets/1/challenges/2)  
 **Example:**  
@@ -45,9 +45,9 @@ Should produce:
 ##  
 ### Set 1: Challenge 3 — [Single-byte XOR cipher](./chal_3.py)  
 **Goal:**  
-decrypt the message that is XOR'ed against a single byte.  
+Decrypt a hex string that was encoded using a single-byte XOR key.  
 **Summary:**  
-Learning English plaintext character frequency and evaluation.  
+This challenge introduces brute-forcing single-byte keys, scoring outputs by English-likeness, and recovery of both the key and plaintext.  
 **Reference:**  
 [Set 1: Challenge 3](https://cryptopals.com/sets/1/challenges/3)  
 **Example:**  
@@ -63,21 +63,17 @@ After this challenge, you have permission to make "ETAOIN SHRDLU" jokes.
 **Goal:**  
 find the 60-character string in the file that has been encrypted by single-character XOR 
 **Summary:**  
-Finding encoded text in a file  
+Extending single-byte XOR cracking by testing multiple strings and detecting which one decrypts into meaningful English.  
 **Reference:**  
 [Set 1: Challenge 4](https://cryptopals.com/sets/1/challenges/4)  
 **Cryptopals Hint:**  
-The code from challenge 3 should help
-
-
-
-
+The code from challenge 3 should help  
 ##  
 ### Set 1: Challenge 5 — [Implement repeating-key XOR](./chal_5.py)  
 **Goal:**  
 Encrypt the string using repeating-key XOR with the key "ICE".  
 **Summary:**  
-Learning how to use a repeating key to encrypt data.  
+Learning to apply repeating key cyclically across the plaintext using XOR. Gaining familiarity with repeating-key XOR is a building block in cryptography.  
 **Reference:**  
 [Set 1: Challenge 5](https://cryptopals.com/sets/1/challenges/5)  
 **Example:**  
@@ -85,9 +81,27 @@ The string:
 ```
 Burning 'em, if you ain't quick and nimble I go crazy when I hear a cymbal
 ```
-XOR'ed with the key "ICE" will  Should produce:
+XOR'ed with the key "ICE" should produce:
 ```
 0b3637272a2b2e63622c2e69692a23693a2a3c6324202d623d63343c2a26226324272765272a282b2f20430a652e2c652a3124333a653e2b2027630c692b20283165286326302e27282f
 ```
-
-
+##  
+### Set 1: Challenge 6 — [Break repeating-key XOR](./chal_6.py)  
+**Goal:**  
+Decrypt a ciphertext that has been encrypted with repeating-key XOR by determining the key size, recovering the key, and producing the original plaintext.  
+**Summary:**  
+Learn Hamming-distance analysis to estimate the repeating-key length, and reconstruct the full XOR key and decrypt the message.  
+**Reference:**  
+[Set 1: Challenge 6](https://cryptopals.com/sets/1/challenges/6)  
+**Example:**  
+The Hamming distance is just the number of differing bits. The distance between:  
+```
+this is a test
+```
+and  
+```
+wokka wokka!!!
+```
+Is 37.  
+**Cryptopals Hint:**  
+This code will be surprisingly useful later on. Breaking repeating-key XOR ("Vigenere") is a "Crypto 101" thing. But "knowing how" is not the same as writing the code to "break it".
