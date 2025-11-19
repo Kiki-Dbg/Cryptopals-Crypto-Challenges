@@ -1,7 +1,33 @@
 
-from language_analysis import *
+from xor_functions import *
 
-from misc_functions import *
+########################################
+#### misc crypto related functions  ####
+########################################
+
+def hamming_dist(a, b):
+    return sum(bin(byte).count('1') for byte in xor_bytes(a,b))
+
+def score_vigenere_key_size(ct, max_size):
+    temp_score = 100
+    value = 0
+    for key_sz in range(2, max_size):
+
+        nb_measurements = len(ct) // key_sz - 1
+        score = 0
+        for i in range(nb_measurements):
+            #TODO fix this ugly line
+            score += hamming_dist(ct[i*key_sz:(i*key_sz)+key_sz], ct[(i*key_sz)+ key_sz:(i*key_sz)+(2*key_sz)])
+
+        score /= key_sz
+
+        score /= nb_measurements
+        if score < temp_score:
+            value = key_sz
+            temp_score = score
+
+    return value
+
 
 ########################################
 #### XOR related functions          ####

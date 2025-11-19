@@ -105,3 +105,13 @@ wokka wokka!!!
 Is 37.  
 **Cryptopals Hint:**  
 This code will be surprisingly useful later on. Breaking repeating-key XOR ("Vigenere") is a "Crypto 101" thing. But "knowing how" is not the same as writing the code to "break it".
+##  
+### Set 1: Challenge 7 — [AES in ECB mode](./chal_7.py)  
+**Goal:**  
+Decrypt AES-128-ECB ciphertext (Base64-encoded) using the known key "YELLOW SUBMARINE".  
+**Summary:**  
+This challenge requires implementing AES-128-ECB decryption to prepare for later exercises that depend on understanding and manipulating AES ECB behavior.  
+**Reference:**  
+[Set 1: Challenge 7](https://cryptopals.com/sets/1/challenges/7)  
+**Cryptopals Hint:**  
+Don't use the OpenSSL command-line tool, the code created will come in handy.
