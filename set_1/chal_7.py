@@ -30,8 +30,8 @@ def unpad(ct):
 #### code to complete the challange ####
 ########################################
 
-with open("text_chal_7.txt") as file:
-        ciphertext = b64_to_bytes(file.read())
+
+ciphertext = get_file_text("text_chal_7.txt", 'b64_to_bytes')
 
 key = "YELLOW SUBMARINE"
 key = str_to_bytes(key)

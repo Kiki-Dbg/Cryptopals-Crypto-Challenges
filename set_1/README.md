@@ -114,4 +114,15 @@ This challenge requires implementing AES-128-ECB decryption to prepare for later
 **Reference:**  
 [Set 1: Challenge 7](https://cryptopals.com/sets/1/challenges/7)  
 **Cryptopals Hint:**  
-Don't use the OpenSSL command-line tool, the code created will come in handy.
+Don't use the OpenSSL command-line tool, the code created will come in handy.  
+##  
+### Set 1: Challenge 8 — [Detect AES in ECB mode](./chal_8.py)  
+**Goal:**  
+Detect which ciphertext in a list has been encrypted using AES-128 in ECB mode.  
+**Summary:**  
+This challenge requires identification of ECB-encrypted data by scanning each ciphertext for repeated 16-byte blocks, as statistical fingerprint of ECB mode.  
+**Reference:**  
+[Set 1: Challenge 8](https://cryptopals.com/sets/1/challenges/8)  
+**Cryptopals Hint:**  
+Remember that the problem with ECB is that it is stateless and deterministic; the same 16 byte plaintext block will always produce the same 16 byte ciphertext.
+
