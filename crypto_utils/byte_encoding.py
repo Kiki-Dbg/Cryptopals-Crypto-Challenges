@@ -4,37 +4,37 @@ from binascii import unhexlify, hexlify
 ########################################
 #### convert datatypes to bytes     ####
 ########################################
-def hex_to_bytes(input):
+def hex_to_bytes(s: str) -> bytes:
     #non-delimiter hex value as a string
-    return unhexlify(input)
+    return unhexlify(s)
 
-def b64_to_bytes(input):
+def b64_to_bytes(s: str) -> bytes:
     #base64 value as a string
-    return b64decode(input)
+    return b64decode(s)
 
-def str_to_bytes(input):
+def str_to_bytes(s: str) -> bytes:
     #python string datatype
-    return bytes(input, "ascii")
+    return bytes(s, "ascii")
 
-def int_to_bytes(input):
+def int_to_bytes(n: int) -> bytes:
     #single byte integer
-    return input.to_bytes(1, 'big') 
+    return n.to_bytes(1, 'big') 
 
 ########################################
 ## convert bytes to pretty datatypes  ##
 ########################################
-def bytes_to_str(input):
+def bytes_to_str(b: bytes) -> str:
     #python string datatype
-    return input.decode("ascii")
+    return b.decode("ascii")
 
-def bytes_to_b64(input):
+def bytes_to_b64(b: bytes) -> str:
     #base64 value as a string
-    return bytes_to_str(b64encode(input))
+    return bytes_to_str(b64encode(b))
     
-def bytes_to_hex(input):
+def bytes_to_hex(b: bytes) -> str:
     #non-delimiter hex value as a string
-    return bytes_to_str(hexlify(input))
+    return bytes_to_str(hexlify(b))
 
-def bytes_to_int(input):
+def bytes_to_int(b: bytes) -> int:
     #single byte integer
-    return int.from_bytes(input, byteorder='big')
+    return int.from_bytes(b, byteorder='big')

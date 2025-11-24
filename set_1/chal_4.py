@@ -1,17 +1,16 @@
-import sys
-sys.path.insert(0, '../crytopals_lib')
 
-from cryptopals_lib import *
+from crypto_utils.io_utils import read_lines
+from crypto_utils.xor import xor_bruteforce
 
 ########################################
 #### code to complete the challange ####
 ########################################
 total_candidates = []
 
-lines = get_file_lines('text_chal_4.txt', 'hex_to_bytes')
+lines = read_lines('./set_1/text_chal_4.txt', 'hex_to_bytes')
 
 for line_no, test_text in enumerate(lines):
-    best_line = xor_brute(test_text)
+    best_line = xor_bruteforce(test_text)
     best_line["line"] = line_no
     total_candidates.append(best_line)
 

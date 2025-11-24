@@ -2,7 +2,7 @@
 ########################################
 #### english character frequency    ####
 ########################################
-eng_chr_freq = {
+ENGLISH_FREQ = {
     'a': 0.0651738, 'b': 0.0124248, 'c': 0.0217339, 'd': 0.0349835, 'e': 0.1041442, 'f': 0.0197881, 'g': 0.0158610,
     'h': 0.0492888, 'i': 0.0558094, 'j': 0.0009033, 'k': 0.0050529, 'l': 0.0331490, 'm': 0.0202124, 'n': 0.0564513,
     'o': 0.0596302, 'p': 0.0137645, 'q': 0.0008606, 'r': 0.0497563, 's': 0.0515760, 't': 0.0729357, 'u': 0.0225134,
@@ -12,17 +12,18 @@ eng_chr_freq = {
 ########################################
 #### string engilish language score ####
 ########################################
-def eng_score(input):
+
+def english_score(t: bytes) -> int:
     score = 0
-    for byte in input:
-        score += eng_chr_freq.get(chr(byte).lower(), 0)
+    for byte in t:
+        score += ENGLISH_FREQ.get(chr(byte).lower(), 0)
     return score
 
 ## list of ascii charecters as bytes
-def ascii_list():
-    ascii_chars =[]
-    for i in range(32, 128):
-        ascii_chars.append(chr(i).encode('ascii'))
-    ascii_chars.append(b'\r')  # Add carriage return
-    ascii_chars.append(b'\n')  # Add line feed
-    return ascii_chars
+#def ascii_printable():
+#    ascii_chars =[]
+#    for i in range(32, 128):
+#        ascii_chars.append(chr(i).encode('ascii'))
+#    ascii_chars.append(b'\r')  # Add carriage return
+#    ascii_chars.append(b'\n')  # Add line feed
+#    return ascii_chars

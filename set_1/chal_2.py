@@ -1,13 +1,10 @@
-import sys
-sys.path.insert(0, '../crytopals_lib')
 
-from cryptopals_lib import *
+from crypto_utils.byte_encoding import hex_to_bytes, bytes_to_hex
+from crypto_utils.xor import xor_bytes
 
-########################################
-#### XOR related functions          ####
-########################################
-def xor_bytes(a, b):
-    return bytes([ x^y for (x,y) in zip(a, b)])
+
+
+
 
 ########################################
 #### code to complete the challange ####
