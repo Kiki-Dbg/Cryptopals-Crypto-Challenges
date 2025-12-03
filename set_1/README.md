@@ -124,5 +124,5 @@ This challenge requires identification of ECB-encrypted data by scanning each ci
 **Reference:**  
 [Set 1: Challenge 8](https://cryptopals.com/sets/1/challenges/8)  
 **Cryptopals Hint:**  
-Remember that the problem with ECB is that it is stateless and deterministic; the same 16 byte plaintext block will always produce the same 16 byte ciphertext.
+Remember the problem with ECB is that it is stateless and deterministic; the same 16 byte plaintext block will always produce the same 16 byte ciphertext.
 
