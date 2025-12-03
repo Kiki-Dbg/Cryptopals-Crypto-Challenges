@@ -10,8 +10,6 @@ from crypto_utils.byte_encoding import (
     bytes_to_int,
 )
 
-#run from root dir: python -m set_1.chal_1 
-
 #example of data types
 #x = "Hello World"	str 	
 #x = 20			int 	
