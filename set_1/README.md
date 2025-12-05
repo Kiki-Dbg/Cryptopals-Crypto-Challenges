@@ -1,4 +1,4 @@
-# Crypto Challenges Set 1  
+# Crypto Challenges Set 1: Basics
 Is considered the qualifying set. With the aim of assessing if someone is ready to write code.  
 
 The lessons and code from this set are important stepping stones to later attacks.   
