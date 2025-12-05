@@ -1,4 +1,5 @@
-from crypto_utils.aes import encrypt_ecb, decrypt_ecb, pkcs7_pad, pkcs7_unpad
+from crypto_utils.block_logic import pkcs7_pad, pkcs7_unpad
+from crypto_utils.aes import encrypt_ecb, decrypt_ecb
 
 ########################################
 #### code to complete the challange ####
