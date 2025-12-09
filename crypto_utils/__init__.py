@@ -23,4 +23,4 @@ from .aes import decrypt_ecb, encrypt_ecb, decrypt_cbc, encrypt_cbc
 
 from .aes_oracles import detect_ecb
 
-from .rand_operations import random_key, random_bool, random_padding, random_choice
+from .rand_operations import random_key, random_bool, random_padding, random_choice, random_int

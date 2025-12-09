@@ -3,7 +3,7 @@ from typing import Literal
 
 from .block_logic import BLOCK_SZ
 
-from .rand_operations import random_key, random_bool, random_padding, random_choice
+from .rand_operations import random_key, random_padding, random_choice, random_int
 
 from .block_logic import pkcs7_pad
 
@@ -13,14 +13,14 @@ from .aes import encrypt_ecb, encrypt_cbc
 ######### AES specific oracles #########
 ########################################
 
-def aes_rand_mode_oracle(pt: bytes, mode: Literal["ECB", "CBC"] | None = None) -> bytes:
+def aes_rand_mode_oracle(pt: bytes, mode: Literal["ECB", "CBC"] | None = None) -> tuple[bytes, str]:
 
     if mode is None:
         mode = random_choice(["ECB", "CBC"])
 
     key = random_key()
 
-    pt_mod = pkcs7_pad(random_choice() + pt + random_padding())
+    pt_mod = pkcs7_pad(random_padding() + pt + random_padding())
     ct = b''
 
     if  mode == "ECB":
@@ -35,38 +35,20 @@ def aes_rand_mode_oracle(pt: bytes, mode: Literal["ECB", "CBC"] | None = None) -
 ## Extended oracles with non AES data ##
 ########################################
 
-def AES_rand_mode_oracle(pt):
+def random_block_oracle(pt: bytes) -> tuple[bytes, str]:
 
-    key = pseudorandom_key()
-
-    prefix = bytes(randint(0, 255) for _ in range(randint(5, 10)))
-    suffix= bytes(randint(0, 255) for _ in range(randint(5, 10)))
-    pt_mod = pad(prefix + pt + suffix)
-    ct = b''
-
-    if select_options([True, False]):
-        ct = encrypt_AES_ECB(key, pt_mod)
-        mode = "ECB"
-    else:
-        iv = pseudorandom_key()
-        ct = encrypt_AES_CBC(iv, key, pt_mod)
-        mode = "CBC"
-        
-    mode = select_options(["ECB", "CBC", "NOT"])
+    mode = random_choice(["ECB", "CBC", "NOT"])
     if mode == "ECB":
-        ct = encrypt_AES_ECB(key, pt_mod)
+        ct = aes_rand_mode_oracle(pt, mode=mode)[0]
     elif mode == "CBC":
-        iv = pseudorandom_key()
-        ct = encrypt_AES_CBC(iv, key, pt_mod)
+        ct = aes_rand_mode_oracle(pt, mode=mode)[0]
     elif mode == "NOT":
-        ct = bytes(randint(0, 255) for _ in range(len(pt_mod)+ randint(1, 5)))
-    
+        length = random_int(5, 10) + len(pt) + random_int(5, 10)
+
+        if length % BLOCK_SZ == 0:
+            length += 1
+        ct = bytes(random_int(0, 255) for _ in range(length))
     return ct, mode
-
-
-
-
-
 
 ########################################
 ######### detection functions ##########
