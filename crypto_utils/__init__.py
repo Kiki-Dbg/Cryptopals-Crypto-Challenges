@@ -19,4 +19,8 @@ from .utils import hamming_dist
 
 from .block_logic import pkcs7_unpad, pkcs7_pad
 
-from .aes import decrypt_ecb, encrypt_ecb, detect_ecb, decrypt_cbc, encrypt_cbc
+from .aes import decrypt_ecb, encrypt_ecb, decrypt_cbc, encrypt_cbc
+
+from .aes_oracles import detect_ecb
+
+from .rand_operations import random_key, random_bool, random_padding, random_choice

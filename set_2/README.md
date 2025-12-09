@@ -29,7 +29,7 @@ This challenge teaches how CBC mode chains blocks by XORing each plaintext block
 **Reference:**  
 [Set 2: Challenge 10](https://cryptopals.com/sets/2/challenges/10)  
 **Example:**  
-The chellenge text file is encrypted with the key:
+The challenge text file is encrypted with the key:
 
 ```
 YELLOW SUBMARINE
