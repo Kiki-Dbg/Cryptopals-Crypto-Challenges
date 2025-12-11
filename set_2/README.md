@@ -42,4 +42,15 @@ all ASCII 0 (\x00\x00\x00 &c)
 ```
 **Cryptopals Rule:**  
 Don't cheat! Do not use OpenSSL's CBC code to do CBC mode, even to verify your results. What's the point of even doing this stuff if you aren't going to learn from it.
+##  
+### Set 2: Challenge 11 — [An ECB/CBC detection oracle](./chal_11.py)
+
+**Goal:**  
+Create an encryption oracle that randomly encrypts input using AES-ECB or AES-CBC with a fresh random key and random prefix/suffix bytes.
+Then implement a detector that identifies which mode was used based solely on the ciphertext.  
+**Summary:**  
+This challenge extends on previous AES encryption functions an combining them into a single oracle that choses the encryption mode at random.
+The second part of the challenge crating a function that can detect the encryption mode of the oracle.  
+**Reference:**  
+[Set 2: Challenge 11](https://cryptopals.com/sets/2/challenges/11)  
 ##

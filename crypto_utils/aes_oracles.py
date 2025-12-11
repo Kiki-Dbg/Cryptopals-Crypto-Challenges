@@ -62,3 +62,16 @@ def detect_ecb(ct: bytes) -> tuple[int, int] | None:
             return seen[block], i
         seen[block] = i
     return None
+
+def aes_mode_detector(ct):
+    if len(ct) % BLOCK_SZ == 0:
+        identical_blocks = detect_ecb(ct)
+        if identical_blocks is None:
+            print("Guess CBC was used")
+            return None
+        else:
+            print("Guess ECB was used")
+            return identical_blocks
+    else:
+        print("Guess NOT AES, not a block size of " + str(BLOCK_SZ))
+        return None
